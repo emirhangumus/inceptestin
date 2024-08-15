@@ -7,7 +7,7 @@ RUN apt-get install -y nginx openssl vim zsh wget
 RUN mkdir -p /etc/nginx/ssl
 
 RUN openssl req -x509 -nodes -out /etc/nginx/ssl/inception.crt -keyout \
-    /etc/nginx/ssl/inception.key -subj "/C=MO/ST=KH/L=KH/O=42ISTANBUL/OU=42ISTANBUL/CN=egumus.42.fr/UID=egumus"
+    /etc/nginx/ssl/inception.key -subj "/C=TR/ST=IST/L=TR/O=42ISTANBUL/OU=42ISTANBUL/CN=egumus.42.fr/UID=egumus"
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
