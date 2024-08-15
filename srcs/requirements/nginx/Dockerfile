@@ -1,8 +1,8 @@
-FROM debian:bullseye
+FROM debian:oldstable
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y nginx openssl vim zsh wget git
+RUN apt-get install -y nginx openssl vim zsh wget
 
 RUN mkdir -p /etc/nginx/ssl
 
