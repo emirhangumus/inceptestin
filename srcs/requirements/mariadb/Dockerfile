@@ -1,11 +1,15 @@
 FROM debian:oldstable
 
-RUN apt-get update && apt-get upgrade -y
+RUN apt-get update && apt-get install -y mariadb-server mariadb-client
 
-RUN apt-get install -y mariadb-server vim
+RUN mkdir workspace
 
-COPY ./conf/mdb_conf.sh /mdb_conf.sh
+WORKDIR /workspace
 
-RUN chmod +x /mdb_conf.sh
+COPY ./tools/installer.sh .
 
-CMD ["./mdb_conf.sh"]
+COPY ./conf/50-server.cnf /etc/mysql/mariadb.conf.d/50-server.cnf
+
+RUN chmod +x installer.sh
+
+CMD ["./installer.sh"]
