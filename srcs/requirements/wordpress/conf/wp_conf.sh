@@ -7,7 +7,7 @@ ping_mariadb_container() {
     return $?
 }
 start_time=$(date +%s)
-end_time=$((start_time + 20))
+end_time=$((start_time + 20)) # 20 seconds timeout
 while [ $(date +%s) -lt $end_time ]; do
     ping_mariadb_container
     if [ $? -eq 0 ]; then
