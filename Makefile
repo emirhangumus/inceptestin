@@ -5,9 +5,9 @@ DB_DATA = /home/egumus/data/mariadb
 all: up
 
 up: build
-	mkdir -p $(DATA_FOLDER)
-	mkdir -p $(WP_DATA)
-	mkdir -p $(DB_DATA)
+	@mkdir -p $(DATA_FOLDER)
+	@mkdir -p $(WP_DATA)
+	@mkdir -p $(DB_DATA)
 	docker compose -f ./srcs/docker-compose.yml up -d
 
 down:
